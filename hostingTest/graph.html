@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+<link type="text/css" rel="StyleSheet" href="https://bootstraptema.ru/plugins/2016/shieldui/style.css" />
+<script src="https://bootstraptema.ru/plugins/jquery/jquery-1.11.3.min.js"></script>
+<script src="https://bootstraptema.ru/plugins/2016/shieldui/script.js"></script>
+
+<br><br>
+<a href="/index.html">Первая страница</a>
+
+<div class="container">
+<div class="row">
+<div class="col-md-8 col-md-offset-2">
+
+<!-- График --><div id="chart"></div>
+
+<script>
+ $(function () {
+ $("#chart").shieldChart({
+ theme: "light",
+ primaryHeader: {
+ text: "Продажи автомобилей система сравнения цен на нефть"
+ },
+ exportOptions: {
+ image: false,
+ print: false
+ },
+ axisY: [{
+ min: 1,
+ max: 60,
+ title: {
+ text: 'Средняя заработная плата (тысяч долларов США)',
+ style: {
+ color: '#4DB0F5'
+ }
+ },
+ axisTickText: {
+ style: {
+ color: '#4DB0F5'
+ }
+ }
+ }, {
+ min: 1,
+ max: 5,
+ title: {
+ text: 'Цены на газ (долл./галлон)',
+ style: {
+ color: '#FFC500'
+ }
+ },
+ swapLocation: true,
+ axisTickText: {
+ style: {
+ color: '#FFC500'
+ }
+ }
+ }, {
+ min: 1,
+ max: 40,
+ title: {
+ text: 'Проданных Автомобилей (В Миллионах)',
+ style: {
+ color: '#FF1800'
+ }
+ },
+ swapLocation: true,
+ axisTickText: {
+ style: {
+ color: '#FF1800'
+ }
+ }
+ }],
+ dataSeries: [{
+ seriesType: 'line',
+ axis: 0,
+ collectionAlias: "Зарплата",
+ data: [42.7, 52.8, 63.1, 23.5, 53, 55.8, 57.7]
+ }, {
+ seriesType: 'line',
+ axisY: 1,
+ collectionAlias: "Цены на газ (долл./галлон)",
+ data: [2.75, 2.80, 2, 2.55, 2.60, 2.90, 3.05]
+ }, {
+ seriesType: 'line',
+ axisY: 2,
+ collectionAlias: "Продажи Автомобилей",
+ data: [20, 22.9, 32.1, 31, 22.8, 22.4, 32.10]
+ }]
+ });
+ });
+ </script><!-- /.График -->
+
+</div><!-- /.col-md-8 col-md-offset-2 -->
+</div><!-- /.row -->
+</div><!-- /.container -->
+</html>
